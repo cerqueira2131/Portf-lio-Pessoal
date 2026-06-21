@@ -1,0 +1,211 @@
+/* ===========================
+   Filmes Vertical Carousel
+   =========================== */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /* We hide overflow on body so the inner scroll container handles scrolling */
+    overflow: hidden;
+}
+
+/* Background Container - Fixed */
+.movie-backgrounds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    background: var(--bg-dark);
+}
+
+.movie-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    will-change: opacity;
+}
+
+.movie-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient to ensure text readability on the left */
+    background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.1) 100%);
+}
+
+.movie-bg.active {
+    opacity: 1;
+}
+
+/* Scrollable Container */
+.movie-scroll-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    z-index: 1;
+}
+
+/* Hide scrollbar for cleaner look */
+.movie-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+.movie-scroll-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Individual Movie Section */
+.movie-section {
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: center; /* Center the section on scroll */
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    position: relative;
+}
+
+.movie-content {
+    max-width: 600px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.movie-section.in-view .movie-content {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+.movie-title {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.movie-desc {
+    font-size: 1.125rem;
+    color: #e5e5e5;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+.movie-tags {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.movie-tag {
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-xl);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* Navbar override for this page */
+.navbar {
+    background: transparent !important;
+    border-bottom: none !important;
+}
+
+.navbar .nav-link,
+.navbar .logo-icon,
+.navbar .logo-text,
+.navbar .theme-toggle {
+    color: #ffffff !important;
+}
+
+.logo-text {
+    background: none;
+    -webkit-text-fill-color: #ffffff;
+}
+
+/* Scroll indicator on the first slide */
+.scroll-indicator-carousel {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+.scroll-indicator-carousel .mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    position: relative;
+}
+
+.scroll-indicator-carousel .wheel {
+    width: 4px;
+    height: 8px;
+    background: #ffffff;
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll 2s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .movie-bg::after {
+        background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.9) 100%);
+    }
+
+    .movie-section {
+        align-items: flex-end;
+        padding: 0 20px 80px;
+    }
+
+    .movie-content {
+        padding: 24px;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .movie-title {
+        font-size: 2.5rem;
+    }
+}

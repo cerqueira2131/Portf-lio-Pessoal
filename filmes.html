@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Carrossel vertical de filmes favoritos.">
+    <meta name="author" content="Cerqueira">
+    <title>Filmes | Cerqueira</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="filmes-carousel.css">
+    <link rel="icon" type="image/jpeg" href="assets/icons/icon.jfif">
+</head>
+
+<body>
+    <!-- Navbar (Fixed, Transparent) -->
+    <nav class="navbar">
+        <div class="nav-container" style="padding-top: 16px;">
+            <a href="index.html#projetos" class="nav-logo" style="display: flex; align-items: center; gap: 8px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span style="font-size: 1rem; font-weight: 500;">Voltar</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Fixed Backgrounds Container -->
+    <div class="movie-backgrounds">
+        <div class="movie-bg active" data-bg="1" style="background-image: url('assets/images/filmes/forest gump.jfif');"></div>
+        <div class="movie-bg" data-bg="2" style="background-image: url('assets/images/filmes/poderoso chefao.jfif');"></div>
+        <div class="movie-bg" data-bg="3" style="background-image: url('assets/images/filmes/rocky.jfif');"></div>
+        <div class="movie-bg" data-bg="4" style="background-image: url('assets/images/filmes/scarface.jfif');"></div>
+        <div class="movie-bg" data-bg="5" style="background-image: url('assets/images/filmes/silent voice.jfif');"></div>
+        <div class="movie-bg" data-bg="6" style="background-image: url('assets/images/filmes/the notebook.jfif');"></div>
+        <div class="movie-bg" data-bg="7" style="background-image: url('assets/images/filmes/your name.jfif');"></div>
+    </div>
+
+    <!-- Scrollable Foreground Content -->
+    <main class="movie-scroll-container">
+        
+        <!-- Forrest Gump -->
+        <section class="movie-section" data-index="1">
+            <div class="movie-content">
+                <h1 class="movie-title">Forrest Gump</h1>
+                <p class="movie-desc">Um homem simples com boas intenções participa de momentos marcantes da história dos Estados Unidos, provando que otimismo e inocência podem mudar o mundo.</p>
+                <div class="movie-tags">
+                    <span class="movie-tag">Drama</span>
+                    <span class="movie-tag">Romance</span>
+                    <span class="movie-tag">Clássico</span>
+                </div>
+            </div>
+            <div class="scroll-indicator-carousel">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>Scroll</span>
+            </div>
+        </section>
+
+        <!-- O Poderoso Chefão -->
+        <section class="movie-section" data-index="2">
+            <div class="movie-content">
+                <h1 class="movie-title">O Poderoso Chefão</h1>
+                <p class="movie-desc">A saga da família Corleone, uma dinastia mafiosa em Nova York. Um clássico absoluto que explora temas de poder, lealdade e família.</p>
+                <div class="movie-tags">
+                    <span class="movie-tag">Crime</span>
+                    <span class="movie-tag">Drama</span>
+                    <span class="movie-tag">Clássico</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rocky -->
+        <section class="movie-section" data-index="3">
+            <div class="movie-content">
+                <h1 class="movie-title">Rocky</h1>
+                <p class="movie-desc">A história de superação de um lutador de boxe amador da Filadélfia que tem a chance da sua vida de lutar pelo campeonato mundial de pesos pesados.</p>
+                <div class="movie-tags">
+                    <span class="movie-tag">Esportes</span>
+                    <span class="movie-tag">Drama</span>
+                    <span class="movie-tag">Clássico</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scarface -->
+        <section class="movie-section" data-index="4">
+            <div class="movie-content">
+                <h1 class="movie-title">Scarface</h1>
+                <p class="movie-desc">A ascensão implacável de um refugiado cubano que constrói um império de drogas em Miami. Uma história crua sobre ambição desmedida.</p>
+                <div class="movie-tags">
+                    <span class="movie-tag">Ação</span>
+                    <span class="movie-tag">Crime</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- A Silent Voice -->
+        <section class="movie-section" data-index="5">
+            <div class="movie-content">
+                <h1 class="movie-title">A Silent Voice</h1>
+                <p class="movie-desc">Uma história emocionante de redenção sobre um garoto que praticava bullying com uma colega surda na escola, e sua jornada anos depois para reparar os erros do passado.</p>
+                <div class="movie-tags">
+                    <span class="movie-tag">Anime</span>
+                    <span class="movie-tag">Drama</span>
+                    <span class="movie-tag">Romance</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Notebook -->
+        <section class="movie-section" data-index="6">
+            <div class="movie-content">
+                <h1 class="movie-title">The Notebook</h1>
+                <p class="movie-desc">Um romance apaixonante que narra a história de um jovem casal cujas vidas são separadas pela guerra e por diferenças de classe nos anos 1940.</p>
+                <div class="movie-tags">
+                    <span class="movie-tag">Romance</span>
+                    <span class="movie-tag">Drama</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Your Name -->
+        <section class="movie-section" data-index="7">
+            <div class="movie-content">
+                <h1 class="movie-title">Your Name</h1>
+                <p class="movie-desc">Dois adolescentes estranhos descobrem que estão trocando de corpos magicamente e embarcam em uma busca emocionante para se encontrarem pela primeira vez.</p>
+                <div class="movie-tags">
+                    <span class="movie-tag">Anime</span>
+                    <span class="movie-tag">Fantasia</span>
+                    <span class="movie-tag">Romance</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="filmes-carousel.js"></script>
+</body>
+
+</html>
